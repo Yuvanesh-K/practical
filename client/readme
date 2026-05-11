@@ -1,0 +1,9 @@
+npm init -y
+npm install express mongoose cors dotenv nodemon
+npx create-react-app client
+npm install axios react-router-dom
+MONGO_URL=mongodb://127.0.0.1:27017/donationDB
+npm run dev
+npm start
+Email: admin@gmail.com
+Password: admin123
