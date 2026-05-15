@@ -1,0 +1,104 @@
+# -----------------------------
+# DATA FRAME CREATION
+# -----------------------------
+
+data <- data.frame(
+  Name   = c("A", "B", "C", "D", "E"),
+  Marks1 = c(45, 50, 55, 60, 65),
+  Marks2 = c(40, 48, 52, 58, 62)
+)
+
+print(data)
+
+
+# -----------------------------
+# RESHAPING DATA
+# -----------------------------
+
+long_data <- stack(data[2:3])
+print(long_data)
+
+wide_data <- unstack(long_data)
+print(wide_data)
+
+
+# -----------------------------
+# TEXT PROCESSING
+# -----------------------------
+
+text <- "R Programming"
+
+nchar(text)
+toupper(text)
+tolower(text)
+substr(text, 1, 5)
+paste(text, "Language")
+
+
+# -----------------------------
+# VARIABLE COERCION
+# -----------------------------
+
+x <- "123"
+as.numeric(x)
+
+y <- 45
+as.character(y)
+
+z <- c(1, 2, 3)
+as.factor(z)
+
+
+# -----------------------------
+# HYPOTHESIS TESTING (t-test)
+# -----------------------------
+
+# Sample dataset (50 observations)
+
+set.seed(123)
+
+sample_data <- rnorm(
+  50,
+  mean = 52,
+  sd = 10
+)
+
+# Perform one-sample t-test
+
+t_test <- t.test(sample_data, mu = 50)
+
+print(t_test)
+
+
+# -----------------------------
+# GRAPH (Visualization)
+# -----------------------------
+
+hist(
+  sample_data,
+  probability = TRUE,
+  main = "Hypothesis Testing (t-test)",
+  col = "lightblue",
+  xlab = "Values"
+)
+
+# Add density curve
+
+curve(
+  dnorm(
+    x,
+    mean = mean(sample_data),
+    sd = sd(sample_data)
+  ),
+  col = "red",
+  lwd = 2,
+  add = TRUE
+)
+
+# Add population mean line
+
+abline(
+  v = 50,
+  col = "blue",
+  lwd = 2
+)
